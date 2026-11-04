@@ -1,0 +1,56 @@
+{
+ "gerado_em": "2026-11-03T19:40:39.978Z",
+ "conf_geral": 0.6,
+ "dobras": [
+  "consultas-a.json",
+  "consultas-b.json"
+ ],
+ "so_modelo": {
+  "certos": 21,
+  "errados": 2,
+  "falsos": 3,
+  "perdidos": 15,
+  "objetos": 36,
+  "confirmados": 0,
+  "corrigidos": 0,
+  "recuperados": 0,
+  "corrigidos_certo": 0,
+  "recuperados_certo": 0
+ },
+ "banco_limiares_padrao": {
+  "certos": 23,
+  "errados": 2,
+  "falsos": 5,
+  "perdidos": 13,
+  "objetos": 36,
+  "confirmados": 18,
+  "corrigidos": 1,
+  "recuperados": 3,
+  "corrigidos_certo": 0,
+  "recuperados_certo": 2
+ },
+ "banco_calibrado": {
+  "certos": 23,
+  "errados": 2,
+  "falsos": 3,
+  "perdidos": 13,
+  "objetos": 36,
+  "confirmados": 18,
+  "corrigidos": 0,
+  "recuperados": 2,
+  "corrigidos_certo": 0,
+  "recuperados_certo": 2
+ },
+ "limiares": {
+  "k": 5,
+  "simCamera": 0.9,
+  "simMin": 0.4,
+  "simTroca": 0.6,
+  "apoioTroca": 0.5,
+  "notaMaxTroca": 0.5,
+  "simRecupera": 0.9,
+  "apoioRecupera": 0.8,
+  "notaMinRecupera": 0.15
+ },
+ "leia": "Contagens nas fotos de validação (objetos nunca vistos pelo modelo da dobra). Amostra pequena: a calibração é indicativa, não estatística."
+}

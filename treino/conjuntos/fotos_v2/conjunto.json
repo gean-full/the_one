@@ -1,0 +1,25 @@
+{
+ "conjunto": "fotos_v2",
+ "versao": "v2.0-marcacoes-20261030",
+ "regra": "Só o objeto DENTRO da marcação vermelha é alvo. Nada fora da marcação vira classe ou exemplo positivo. O traço vermelho não é o objeto e é removido da imagem antes do treino.",
+ "substitui": "fotos_v1 (banco_de_fotos.zip, 33 fotos, piloto de 29/10/2026). Não misturar com este conjunto sem decisão explícita.",
+ "classes": ["banco", "cadeira", "caixa", "lixeira", "manequim", "mesa", "pessoa", "planta"],
+ "classe_por_nome": {
+  "banco": "banco",
+  "cadeira": "cadeira",
+  "cadeiras": "cadeira",
+  "caixa": "caixa",
+  "pilha_de_caixas": "caixa",
+  "humano": "pessoa",
+  "lixeira": "lixeira",
+  "manequim": "manequim",
+  "multiplos_manequins": "manequim",
+  "mesasinha": "mesa",
+  "mesa": "mesa",
+  "planta": "planta"
+ },
+ "sufixos_de_vista": ["_lado", "_frente", "_vista_cima", "_em_pé", "_em_p#u00e9"],
+ "divisao": {"val": 0.2, "test": 0.15},
+ "semente": 7,
+ "nitidez_min": 0
+}

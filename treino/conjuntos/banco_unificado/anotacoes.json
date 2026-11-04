@@ -1,0 +1,30 @@
+{
+ "_leia": "Decisões e caixas feitas à mão por Claude em 03/11/2026 olhando as fotos limpas de fotos_v2 (coordenadas normalizadas x1,y1,x2,y2 da foto limpa). 'objetos' substitui a caixa da marcação; 'cobrir' pinta de cinza um objeto de classe-alvo FORA da marcação (pela regra ele não é alvo, e sem rótulo o YOLO aprenderia que ele é fundo); 'excluir' tira a foto do treino. Fotos sem entrada usam a caixa da marcação de marcacoes.json. CONFIRA e corrija: são decisões padrão para destravar as pendências, não decisões do Ryan.",
+ "decisoes_padrao": [
+  "Marcação com vários objetos: uma caixa por objeto (mesma convenção do banco fotos_v1, que tem uma caixa por caixa da pilha e por manequim).",
+  "Objeto de classe-alvo fora da marcação: coberto de cinza (não vira positivo nem negativo).",
+  "branco.png: tratado como banco (mesmo banco de madeira de banco_lado.png).",
+  "objeto_estranho.png: excluído (classe desconhecida).",
+  "carteira e escada: mantidas (só existem nas fotos_v1)."
+ ],
+ "fotos": {
+  "branco.png": {"classe": "banco"},
+  "banco_lado.png": {"objetos": [["banco", 0.03, 0.37, 1.0, 0.65]], "cobrir": [[0.18, 0.0, 0.84, 0.16]]},
+  "cadeira_individual_lado.png": {"cobrir": [[0.47, 0.0, 0.65, 0.15]]},
+  "cadeiras_enfileiradas.png": {"objetos": [["cadeira", 0.20, 0.0, 0.67, 0.62], ["cadeira", 0.08, 0.22, 0.67, 0.93]]},
+  "cadeiras_enfileiradas_frente.png": {"objetos": [["cadeira", 0.18, 0.19, 0.51, 0.77], ["cadeira", 0.50, 0.19, 0.88, 0.77]]},
+  "pilha_de_caixas.png": {"objetos": [["caixa", 0.13, 0.08, 0.73, 0.41], ["caixa", 0.17, 0.40, 0.73, 0.69], ["caixa", 0.20, 0.67, 0.72, 0.93]]},
+  "pilha_de_caixas_lado.png": {"objetos": [["caixa", 0.07, 0.03, 0.66, 0.41], ["caixa", 0.16, 0.36, 0.66, 0.69], ["caixa", 0.21, 0.67, 0.67, 0.94]]},
+  "pilha_de_caixas_vista_cima.png": {"objetos": [["caixa", 0.20, 0.18, 0.73, 0.68], ["caixa", 0.25, 0.65, 0.73, 0.81], ["caixa", 0.33, 0.79, 0.70, 0.94]]},
+  "multiplos_manequins.png": {"objetos": [["manequim", 0.18, 0.13, 0.41, 0.99], ["manequim", 0.43, 0.14, 0.68, 0.96], ["manequim", 0.62, 0.10, 0.84, 0.92]], "cobrir": [[0.0, 0.13, 0.11, 0.40], [0.94, 0.25, 1.0, 0.88]]},
+  "manequim_do_rock.png": {"cobrir": [[0.81, 0.08, 1.0, 0.86]]},
+  "manequim_grande_frente.png": {"cobrir": [[0.0, 0.60, 0.12, 1.0], [0.76, 0.0, 0.86, 0.19]]},
+  "manequim_grande_lado.png": {"objetos": [["manequim", 0.44, 0.0, 0.70, 1.0]], "cobrir": [[0.27, 0.0, 0.44, 0.90], [0.78, 0.0, 0.93, 0.18], [0.08, 0.0, 0.19, 0.14]]},
+  "objeto_estranho.png": {"excluir": "classe desconhecida"}
+ },
+ "dobras": {
+  "_leia": "Validação cruzada em 2 dobras POR OBJETO FÍSICO: cada foto nova é avaliada por um modelo que nunca viu aquele objeto. As fotos_v1 ficam sempre no treino.",
+  "a": ["banco_madeira", "cadeiras_enfileiradas", "caixa_lisa", "pilha_dell", "lixeira", "manequim_do_rock", "manequins_roupa", "planta_grande"],
+  "b": ["cadeira_preta", "caixa_dell", "caixa_lab", "pilha_un3091", "humano", "manequim_vestido_vermelho", "mesasinha", "planta_vaso_azul"]
+ }
+}

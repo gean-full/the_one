@@ -1,0 +1,96 @@
+{
+ "leia": "Fotos da seta enviada pelo Ryan em 04/11/2026 (setas.zip), reduzidas para lado maior 256 px, RGB cru em gzip. Todas apontam para a esquerda; o teste também as espelha (direita).",
+ "fotos": [
+  {
+   "arq": "seta_01.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.55 (1).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_02.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.55 (2).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_03.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.55.jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_04.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.56 (1).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_05.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.56 (2).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_06.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.56.jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_07.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.57 (1).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_08.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.57 (2).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_09.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.57.jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_10.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.58 (1).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_11.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.58 (2).jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_12.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.58.jpeg",
+   "direcao": "esquerda"
+  },
+  {
+   "arq": "seta_13.rgb.gz",
+   "w": 192,
+   "h": 256,
+   "foto": "WhatsApp Image 2026-11-04 at 09.41.59.jpeg",
+   "direcao": "esquerda"
+  }
+ ]
+}

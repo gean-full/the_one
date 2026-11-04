@@ -1,0 +1,135 @@
+{
+ "tamanho": 416,
+ "classes": [
+  "caixa",
+  "carteira",
+  "escada",
+  "lixeira",
+  "manequim",
+  "mesa",
+  "banco",
+  "planta",
+  "cadeira",
+  "pessoa"
+ ],
+ "versao": "20261103-banco-unificado",
+ "conjunto": "banco_unificado (fotos_v1 33 + fotos_v2 26, 59 fotos)",
+ "mAP50": 0.755,
+ "mAP50_95": 0.558,
+ "metricas_leia": "mAP = média da validação cruzada em 2 dobras por objeto (fotos novas de objetos que o modelo da dobra não viu). O modelo publicado foi treinado com todas as fotos.",
+ "validacao_cruzada": {
+  "a": {
+   "mAP50": 0.699,
+   "mAP50_95": 0.461,
+   "por_classe": {
+    "caixa": 0.945,
+    "lixeira": 0.032,
+    "manequim": 0.562,
+    "banco": 0.663,
+    "planta": 0.995,
+    "cadeira": 0.995
+   }
+  },
+  "b": {
+   "mAP50": 0.811,
+   "mAP50_95": 0.655,
+   "por_classe": {
+    "caixa": 0.657,
+    "manequim": 0.828,
+    "mesa": 0.995,
+    "planta": 0.995,
+    "cadeira": 0.995,
+    "pessoa": 0.398
+   }
+  }
+ },
+ "fotos_por_classe": {
+  "caixa": 12,
+  "carteira": 8,
+  "escada": 3,
+  "lixeira": 7,
+  "manequim": 11,
+  "mesa": 10,
+  "banco": 4,
+  "planta": 5,
+  "cadeira": 4,
+  "pessoa": 2
+ },
+ "epocas": 100,
+ "falas": {
+  "caixa": {
+   "s": "caixa",
+   "p": "caixas",
+   "g": "f",
+   "prio": 2,
+   "off": 0
+  },
+  "carteira": {
+   "s": "carteira",
+   "p": "carteiras",
+   "g": "f",
+   "prio": 2,
+   "off": -0.15
+  },
+  "escada": {
+   "s": "escada",
+   "p": "escadas",
+   "g": "f",
+   "prio": 2,
+   "off": 0
+  },
+  "lixeira": {
+   "s": "lixeira",
+   "p": "lixeiras",
+   "g": "f",
+   "prio": 2,
+   "off": 0
+  },
+  "manequim": {
+   "s": "manequim",
+   "p": "manequins",
+   "g": "m",
+   "prio": 2,
+   "off": 0
+  },
+  "mesa": {
+   "s": "mesa",
+   "p": "mesas",
+   "g": "f",
+   "prio": 2,
+   "off": -0.15
+  },
+  "banco": {
+   "s": "banco",
+   "p": "bancos",
+   "g": "m",
+   "prio": 2,
+   "off": -0.1
+  },
+  "planta": {
+   "s": "planta",
+   "p": "plantas",
+   "g": "f",
+   "prio": 1,
+   "off": 0
+  },
+  "cadeira": {
+   "s": "cadeira",
+   "p": "cadeiras",
+   "g": "f",
+   "prio": 2,
+   "off": -0.15
+  },
+  "pessoa": {
+   "s": "pessoa",
+   "p": "pessoas",
+   "g": "f",
+   "prio": 3,
+   "off": 0
+  }
+ },
+ "caracteristicas": [
+  "p4",
+  "p5"
+ ]
+}

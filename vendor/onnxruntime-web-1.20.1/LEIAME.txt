@@ -1,0 +1,6 @@
+ONNX Runtime Web 1.20.1 (pacote npm onnxruntime-web@1.20.1, pasta dist/), copiado sem alterações.
+Licença MIT, Copyright (c) Microsoft Corporation. https://github.com/microsoft/onnxruntime/blob/main/LICENSE
+
+Está aqui para o modelo da fábrica funcionar sem depender do CDN (rede da apresentação, celular offline).
+Se esta pasta não for publicada, o app baixa os mesmos arquivos do jsDelivr (mesmo hash SRI).
+Arquivos: ort.wasm.min.js (biblioteca), ort-wasm-simd-threaded.mjs e .wasm (motor WebAssembly).

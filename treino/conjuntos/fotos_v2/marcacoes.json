@@ -1,0 +1,1303 @@
+{
+ "conjunto": "fotos_v2",
+ "versao": "v2.0-marcacoes-20261030",
+ "gerado_em": "2026-10-30T20:07:09",
+ "origem": {
+  "arquivo": "8752ae75-fotos_v2.zip",
+  "sha256": "5409404b4ba951942204d879d1dd12e65fea5c6a8bb6c091846061af1a75540b"
+ },
+ "regra": "Só o objeto DENTRO da marcação vermelha é alvo. Nada fora da marcação vira classe ou exemplo positivo. O traço vermelho não é o objeto e é removido da imagem antes do treino.",
+ "classes": [
+  "banco",
+  "cadeira",
+  "caixa",
+  "lixeira",
+  "manequim",
+  "mesa",
+  "pessoa",
+  "planta"
+ ],
+ "fotos": [
+  {
+   "arquivo": "banco_lado.png",
+   "sha256": "3aaa02e74a5097bf028dad8039909fd1c0aefb29bd668870bbef6b54724cb3a6",
+   "imagem_limpa": "banco_lado.jpg",
+   "dhash": "54ec179cfef61b93",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "banco",
+   "classe_origem": "nome do arquivo (\"banco\")",
+   "grupo_objeto": "banco_madeira",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      0,
+      274.8,
+      774,
+      500.2
+     ],
+     "fracao_da_foto": 0.291,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 13.5,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 28824,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 500.4,
+    "brilho_medio": 169.8,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "objeto de classe-alvo FORA da marcação (dois bancos de madeira ao fundo, no alto da foto): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "branco.png",
+   "sha256": "359ad0efbe959eab3050a08b40a5092f153d9bf7aeee0328724a67753ec07c00",
+   "imagem_limpa": "branco.jpg",
+   "dhash": "131b393139b9b9f8",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "banco",
+   "classe_origem": "revisao_manual",
+   "grupo_objeto": "banco_madeira",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      305.0,
+      37.0,
+      584.0,
+      689.0
+     ],
+     "fracao_da_foto": 0.304,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 12.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 36893,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 308.2,
+    "brilho_medio": 173.9,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [
+    "observação visual (Claude, 30/10/2026): confirmar: a foto mostra um banco de madeira visto de cima, aparentemente o mesmo de banco_lado.png."
+   ],
+   "pendencias": [
+    "nome do arquivo 'branco' não corresponde a classe nenhuma; parece erro de digitação de 'banco'. Confirmar a classe."
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "cadeira_individual.png",
+   "sha256": "2401602d130a74223b4f0bc528dd122b05c188209bdc8005d1ed8a864817ce6b",
+   "imagem_limpa": "cadeira_individual.jpg",
+   "dhash": "7069697868784d78",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "cadeira",
+   "classe_origem": "nome do arquivo (\"cadeira\")",
+   "grupo_objeto": "cadeira_preta",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      192.5,
+      0,
+      641.5,
+      690.5
+     ],
+     "fracao_da_foto": 0.518,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 39126,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 290.3,
+    "brilho_medio": 152.7,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "cadeira_individual_lado.png",
+   "sha256": "360974e82d13a54d63c962655f9f5d4cb9107493b896dcd3bcda11ae0795055e",
+   "imagem_limpa": "cadeira_individual_lado.jpg",
+   "dhash": "72e7c1d939694180",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "cadeira",
+   "classe_origem": "nome do arquivo (\"cadeira\")",
+   "grupo_objeto": "cadeira_preta",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      94.0,
+      44.0,
+      589.0,
+      717.0
+     ],
+     "fracao_da_foto": 0.556,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 45197,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 346.7,
+    "brilho_medio": 155.3,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "objeto de classe-alvo FORA da marcação (caixa de papelão no canto superior esquerdo): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "cadeiras_enfileiradas.png",
+   "sha256": "81911baaa157989409a5a77437cab9baf3bfa36bdaa276b9a4b9cdbd3443d5b5",
+   "imagem_limpa": "cadeiras_enfileiradas.jpg",
+   "dhash": "c741d191b1f16040",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "cadeira",
+   "classe_origem": "nome do arquivo (\"cadeiras\")",
+   "grupo_objeto": "cadeiras_enfileiradas",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      17.5,
+      0,
+      542.5,
+      749.5
+     ],
+     "fracao_da_foto": 0.657,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 39605,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 348.4,
+    "brilho_medio": 151.8,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "a marcação contém 2 cadeiras: uma caixa por cadeira, ou uma caixa para o conjunto?",
+    "objeto de classe-alvo FORA da marcação (caixa de papelão no canto superior esquerdo): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "cadeiras_enfileiradas_frente.png",
+   "sha256": "c53f17809fe5d9c4d8df3852215e3bfe0c8f061a56f4b9e288a76b172db0e51f",
+   "imagem_limpa": "cadeiras_enfileiradas_frente.jpg",
+   "dhash": "136c6cccec92742e",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "cadeira",
+   "classe_origem": "nome do arquivo (\"cadeiras\")",
+   "grupo_objeto": "cadeiras_enfileiradas",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      98.0,
+      126.0,
+      719.0,
+      622.0
+     ],
+     "fracao_da_foto": 0.514,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 12.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 42852,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 391.0,
+    "brilho_medio": 160.6,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "a marcação contém 2 cadeiras: uma caixa por cadeira, ou uma caixa para o conjunto?"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "caixa_individual.png",
+   "sha256": "a676d1b67ce81b92d8bc64131e0c4fc38243eff2878701a6751bc03113d89fdb",
+   "imagem_limpa": "caixa_individual.jpg",
+   "dhash": "3ee9d8bcb8f4c023",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "caixa",
+   "classe_origem": "nome do arquivo (\"caixa\")",
+   "grupo_objeto": "caixa_dell",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      27.0,
+      46.0,
+      752.0,
+      708.0
+     ],
+     "fracao_da_foto": 0.801,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 46909,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 210.4,
+    "brilho_medio": 159.6,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [
+    "observação visual (Claude, 30/10/2026): confirmar: as três fotos 'caixa_individual*' parecem ser de três caixas diferentes (DELL, lisa, 'LAB')."
+   ],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "caixa_individual_em_pé.png",
+   "sha256": "52a85cf8cd1b76b85416abb1ca58aa1613eea8a9a81ccaf3c9553dcfc7c47cee",
+   "imagem_limpa": "caixa_individual_em_pé.jpg",
+   "dhash": "1364d4d4f8e86933",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    95,
+    230,
+    985,
+    1120
+   ],
+   "classe": "caixa",
+   "classe_origem": "nome do arquivo (\"caixa\")",
+   "grupo_objeto": "caixa_lisa",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      75.0,
+      134.0,
+      747.0,
+      807.0
+     ],
+     "fracao_da_foto": 0.571,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 45754,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 248.9,
+    "brilho_medio": 168.0,
+    "recorte_px": [
+     890,
+     890
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "caixa_individual_lado.png",
+   "sha256": "2fc855c528a5514a94e0a8939b49ca617d9cb0424c84382d25ebe80dc3dbb816",
+   "imagem_limpa": "caixa_individual_lado.jpg",
+   "dhash": "3f6969ccd0f0e4b3",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    108,
+    243,
+    972,
+    1107
+   ],
+   "classe": "caixa",
+   "classe_origem": "nome do arquivo (\"caixa\")",
+   "grupo_objeto": "caixa_lab",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      109.0,
+      143.0,
+      812.0,
+      742.0
+     ],
+     "fracao_da_foto": 0.564,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 12.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 45787,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 212.4,
+    "brilho_medio": 163.1,
+    "recorte_px": [
+     864,
+     864
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "humano_frente.png",
+   "sha256": "81aa240c25396f3aa0e860e0c526e3f8806a8947803af51ca6ae45f8a4466bb6",
+   "imagem_limpa": "humano_frente.jpg",
+   "dhash": "1633313072723233",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "pessoa",
+   "classe_origem": "nome do arquivo (\"humano\")",
+   "grupo_objeto": "humano",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      278.5,
+      79.5,
+      515.5,
+      760.5
+     ],
+     "fracao_da_foto": 0.269,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 41459,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 453.2,
+    "brilho_medio": 179.1,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "humano_lado.png",
+   "sha256": "24ddb348aada187576deda41b70480b3a2c9991631beb54945d4b418e0cc51bd",
+   "imagem_limpa": "humano_lado.jpg",
+   "dhash": "33773535b5b53433",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "pessoa",
+   "classe_origem": "nome do arquivo (\"humano\")",
+   "grupo_objeto": "humano",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      246.5,
+      39.5,
+      486.5,
+      771.5
+     ],
+     "fracao_da_foto": 0.293,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 37157,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 276.9,
+    "brilho_medio": 186.2,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "lixeira_frente.png",
+   "sha256": "e80cd6382f4820d2eb00f7112e770d67b0cda2c264e9871cb654cd212b7fdadb",
+   "imagem_limpa": "lixeira_frente.jpg",
+   "dhash": "8e2ec1e06ee8ed6d",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    289,
+    927,
+    1062
+   ],
+   "classe": "lixeira",
+   "classe_origem": "nome do arquivo (\"lixeira\")",
+   "grupo_objeto": "lixeira",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      41.5,
+      0,
+      653.5,
+      773
+     ],
+     "fracao_da_foto": 0.791,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 9.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 25957,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 187.4,
+    "brilho_medio": 150.0,
+    "recorte_px": [
+     774,
+     773
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "lixeira_lado.png",
+   "sha256": "62e0ab93b44ae490db4c451de9756aef78e8fb79f4b81cb4a4e7d2bb537101dd",
+   "imagem_limpa": "lixeira_lado.jpg",
+   "dhash": "17d9c9c1c0829343",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "lixeira",
+   "classe_origem": "nome do arquivo (\"lixeira\")",
+   "grupo_objeto": "lixeira",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      31.5,
+      0,
+      657.5,
+      756.5
+     ],
+     "fracao_da_foto": 0.79,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 9.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 36536,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 195.4,
+    "brilho_medio": 154.2,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "lixeira_vista_cima.png",
+   "sha256": "7e8ebc55ade463b0d6f57a2ddacfa4b281b4572ba217987ec867060712d3631e",
+   "imagem_limpa": "lixeira_vista_cima.jpg",
+   "dhash": "d1960e2f6360e9e9",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "lixeira",
+   "classe_origem": "nome do arquivo (\"lixeira\")",
+   "grupo_objeto": "lixeira",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      97.5,
+      89.5,
+      646.5,
+      681.5
+     ],
+     "fracao_da_foto": 0.543,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 41197,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 225.5,
+    "brilho_medio": 157.4,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "manequim_do_rock.png",
+   "sha256": "5b8909ef81dd9abf9e866f203945538abed41b395bc5b4c2f8c4d3786b61885e",
+   "imagem_limpa": "manequim_do_rock.jpg",
+   "dhash": "c111b173323632b3",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "manequim",
+   "classe_origem": "nome do arquivo (\"manequim\")",
+   "grupo_objeto": "manequim_do_rock",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      235.5,
+      17.5,
+      509.5,
+      764.5
+     ],
+     "fracao_da_foto": 0.342,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 38900,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 1005.4,
+    "brilho_medio": 141.2,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "objeto de classe-alvo FORA da marcação (manequim com short jeans à direita): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "manequim_grande_frente.png",
+   "sha256": "095175454760a75c5a0e9d8be7717ca7ad4f5864e88c43c3c65e1ee2c175f8a4",
+   "imagem_limpa": "manequim_grande_frente.jpg",
+   "dhash": "9d9c962763656122",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "manequim",
+   "classe_origem": "nome do arquivo (\"manequim\")",
+   "grupo_objeto": "manequim_vestido_vermelho",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      157.0,
+      19.0,
+      509.0,
+      759.0
+     ],
+     "fracao_da_foto": 0.435,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 42406,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 4,
+    "nitidez_laplaciano": 1181.5,
+    "brilho_medio": 131.0,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "objeto de classe-alvo FORA da marcação (parte de outro manequim com vestido vermelho na borda esquerda): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "manequim_grande_lado.png",
+   "sha256": "3383e8bf9d64833789f1d8a15d0e783c90bf048316b48fac4661b203b7c12d6e",
+   "imagem_limpa": "manequim_grande_lado.jpg",
+   "dhash": "9666646162633331",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "manequim",
+   "classe_origem": "nome do arquivo (\"manequim\")",
+   "grupo_objeto": "manequim_vestido_vermelho",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      288.5,
+      5.5,
+      540.5,
+      774
+     ],
+     "fracao_da_foto": 0.323,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 9.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 31271,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 589.0,
+    "brilho_medio": 122.1,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "objeto de classe-alvo FORA da marcação (manequim com vestido vermelho à esquerda): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "mesasinha.png",
+   "sha256": "da36948a875f8e3877e70a53de3174f9a6bfb2d6f6f217fbdb13582866e540d2",
+   "imagem_limpa": "mesasinha.jpg",
+   "dhash": "fdfcdedf4c4d8f1b",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "mesa",
+   "classe_origem": "nome do arquivo (\"mesasinha\")",
+   "grupo_objeto": "mesasinha",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      99.5,
+      33.5,
+      735.5,
+      634.5
+     ],
+     "fracao_da_foto": 0.638,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 47353,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 1059.6,
+    "brilho_medio": 116.6,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "mesasinha_lado.png",
+   "sha256": "84cc2f867ae359fd577b39f79e3267926075f9f9889aec570e81ae87f5606665",
+   "imagem_limpa": "mesasinha_lado.jpg",
+   "dhash": "97d3eacec9cbeb99",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "mesa",
+   "classe_origem": "nome do arquivo (\"mesasinha\")",
+   "grupo_objeto": "mesasinha",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      36.5,
+      79.5,
+      671.5,
+      680.5
+     ],
+     "fracao_da_foto": 0.637,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 47245,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 636.6,
+    "brilho_medio": 122.0,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "multiplos_manequins.png",
+   "sha256": "b7763d3a17ca02c494e46e8e82030ae07db1528aa91329801ec7e5fc68ec89f3",
+   "imagem_limpa": "multiplos_manequins.jpg",
+   "dhash": "935b393259cdccd8",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "manequim",
+   "classe_origem": "nome do arquivo (\"multiplos_manequins\")",
+   "grupo_objeto": "manequins_roupa",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      128.5,
+      56.5,
+      717.5,
+      755.5
+     ],
+     "fracao_da_foto": 0.687,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 11.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 45115,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 955.0,
+    "brilho_medio": 134.9,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "a marcação contém 3 manequins: uma caixa por manequim, ou uma caixa para o conjunto?",
+    "objeto de classe-alvo FORA da marcação (manequins parciais à esquerda, ao fundo, e na borda direita): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "objeto_estranho.png",
+   "sha256": "e624d216f58a7394d6c8dc146d3e23f5223a800c63d43dec2e623eb0cd129a30",
+   "imagem_limpa": "objeto_estranho.jpg",
+   "dhash": "1973664774f0f133",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": null,
+   "classe_origem": null,
+   "grupo_objeto": "objeto_estranho",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      173.0,
+      0,
+      659.0,
+      774
+     ],
+     "fracao_da_foto": 0.628,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 8.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 28157,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 443.1,
+    "brilho_medio": 145.1,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [
+    "observação visual (Claude, 30/10/2026): confirmar: parecem duas cadeiras empilhadas ou uma banqueta/cadeira alta sobre uma cadeira; há caixas e parte de uma pessoa à direita, fora da marcação."
+   ],
+   "pendencias": [
+    "objeto da marcação não identificado com segurança: informar a classe (ou se é uma classe nova) antes de usar a foto.",
+    "classe não identificada pelo nome do arquivo"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "pilha_de_caixas.png",
+   "sha256": "4d553ed6d9b6260d4bf63266f5853bd964cc0e3560d13729f317e5babea74055",
+   "imagem_limpa": "pilha_de_caixas.jpg",
+   "dhash": "d9d9d9d9c8c8e969",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "caixa",
+   "classe_origem": "nome do arquivo (\"pilha_de_caixas\")",
+   "grupo_objeto": "pilha_dell",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      89.5,
+      40.5,
+      608.5,
+      739.5
+     ],
+     "fracao_da_foto": 0.606,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 9.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 42091,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 254.1,
+    "brilho_medio": 162.3,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "a marcação contém uma pilha de 3 caixas: uma caixa por caixa, ou uma caixa para a pilha (classe caixa ou classe nova 'pilha')?"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "pilha_de_caixas_lado.png",
+   "sha256": "75b14e4673b5e028787e9e926bdfd463d4efdd04ced9ac024dfe2d3e3237f6fc",
+   "imagem_limpa": "pilha_de_caixas_lado.jpg",
+   "dhash": "f3e3b3d1f1f0e161",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "caixa",
+   "classe_origem": "nome do arquivo (\"pilha_de_caixas\")",
+   "grupo_objeto": "pilha_un3091",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      36.0,
+      0,
+      538.0,
+      748.0
+     ],
+     "fracao_da_foto": 0.627,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 12.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 43623,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 488.9,
+    "brilho_medio": 156.2,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "a marcação contém uma pilha de 3 caixas: uma caixa por caixa, ou uma caixa para a pilha (classe caixa ou classe nova 'pilha')?"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "pilha_de_caixas_vista_cima.png",
+   "sha256": "0253e69ee85f2fbb588b2f246261ad7ef259820eb48458cc58b86fb0e1d73edd",
+   "imagem_limpa": "pilha_de_caixas_vista_cima.jpg",
+   "dhash": "3f697979e8f97930",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "caixa",
+   "classe_origem": "nome do arquivo (\"pilha_de_caixas\")",
+   "grupo_objeto": "pilha_un3091",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      152.0,
+      99.0,
+      612.0,
+      725.0
+     ],
+     "fracao_da_foto": 0.481,
+     "marcacao_sai_da_foto": false,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 38791,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 293.8,
+    "brilho_medio": 161.0,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [
+    "a marcação contém uma pilha de caixas: uma caixa por caixa, ou uma caixa para a pilha (classe caixa ou classe nova 'pilha')?"
+   ],
+   "situacao": "pendente"
+  },
+  {
+   "arquivo": "planta.png",
+   "sha256": "676b7c6f5f4b6ab49202a91807dcee8d1d0a4aea0c32173f4a2b4beaf0b26d6f",
+   "imagem_limpa": "planta.jpg",
+   "dhash": "fbfbfbf7efe1f2f7",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "planta",
+   "classe_origem": "nome do arquivo (\"planta\")",
+   "grupo_objeto": "planta_vaso_azul",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      105.0,
+      0,
+      678.0,
+      717.0
+     ],
+     "fracao_da_foto": 0.686,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 33141,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 1,
+    "nitidez_laplaciano": 747.4,
+    "brilho_medio": 120.4,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "planta_al.png",
+   "sha256": "c6093c47187ebab06eb3110aa8d869b13c8f50786e42911ac63d9ce57321d76c",
+   "imagem_limpa": "planta_al.jpg",
+   "dhash": "38dac0617173b030",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1062
+   ],
+   "classe": "planta",
+   "classe_origem": "nome do arquivo (\"planta\")",
+   "grupo_objeto": "planta_vaso_azul",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      106.0,
+      0,
+      539.0,
+      756.0
+     ],
+     "fracao_da_foto": 0.546,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 34719,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 2,
+    "nitidez_laplaciano": 587.8,
+    "brilho_medio": 132.8,
+    "recorte_px": [
+     774,
+     774
+    ]
+   },
+   "observacoes": [
+    "observação visual (Claude, 30/10/2026): confirmar: mesma planta de planta.png, outro ângulo. O que significa '_al' no nome?"
+   ],
+   "pendencias": [],
+   "situacao": "pronta"
+  },
+  {
+   "arquivo": "planta_grande.png",
+   "sha256": "0a9fc31cefdc00c9024bb1d05e09f2f1450d919291239eb797e29a36dce990a9",
+   "imagem_limpa": "planta_grande.jpg",
+   "dhash": "b4f8d870622333f4",
+   "tamanho_original_px": [
+    1080,
+    1350
+   ],
+   "area_da_foto_px": [
+    153,
+    288,
+    927,
+    1050
+   ],
+   "classe": "planta",
+   "classe_origem": "nome do arquivo (\"planta\")",
+   "grupo_objeto": "planta_grande",
+   "marcacoes": [
+    {
+     "caixa_px": [
+      23.0,
+      0,
+      690.0,
+      762
+     ],
+     "fracao_da_foto": 0.862,
+     "marcacao_sai_da_foto": true,
+     "espessura_traco_px": 10.0,
+     "pedacos_do_traco": 1
+    }
+   ],
+   "pixels_de_traco_removidos": 28468,
+   "qualidade": {
+    "pontos_vermelhos_soltos": 0,
+    "nitidez_laplaciano": 1032.5,
+    "brilho_medio": 143.7,
+    "recorte_px": [
+     774,
+     762
+    ]
+   },
+   "observacoes": [
+    "a faixa vermelha e amarela do piso fica dentro da marcação; ela não é marcação e foi preservada na imagem limpa."
+   ],
+   "pendencias": [],
+   "situacao": "pronta"
+  }
+ ]
+}

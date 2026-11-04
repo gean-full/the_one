@@ -1,0 +1,14 @@
+dados/
+execucoes/
+*.pt
+__pycache__/
+banco/
+ultimo-best.pt
+modelo-anterior/
+# Conjuntos de fotos: só os JSON (classes, revisão manual, marcações, avaliações) vão para o git. As fotos ficam fora do
+# repositório público (há pessoas identificáveis nelas) e são entregues à parte (ver treino/conjuntos/README.md).
+conjuntos/*/originais/
+conjuntos/*/limpas/
+conjuntos/*/revisao/
+conjuntos/*/yolo/
+conjuntos/banco_unificado/yolo-*/

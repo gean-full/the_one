@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Origens permitidas: os scripts do app e o modelo da fábrica com o ONNX Runtime (mesma origem, pastas modelos/ e vendor/);
+     as bibliotecas fixadas no jsDelivr e os pesos no Google Cloud Storage, baixados só quando um modelo COCO-SSD é escolhido
+     (o jsDelivr também é a reserva do ONNX Runtime se a pasta vendor/ não for publicada).
+     'unsafe-eval' é exigido pelo TensorFlow.js 4.22 (usa Function() internamente; sem ele a carga do modelo falha, verificado no Chromium). Scripts embutidos continuam proibidos. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net; connect-src 'self' https://storage.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: blob:; media-src 'self' blob: mediastream:; style-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b5cab">
+<meta name="description" content="Protótipo experimental de alertas falados de obstáculos com a câmera do celular. Ferramenta complementar: não garante caminho livre.">
+<title>VisioIndústria — protótipo</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icones/icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icones/icone-192.png">
+<link rel="stylesheet" href="css/visioindustria.css">
+</head>
+<body>
+<a class="pular" href="#controles">Ir para os controles</a>
+<main>
+  <header>
+    <h1>VisioIndústria</h1>
+    <p class="sub">Protótipo experimental: câmera, detecção de objetos e alertas de áudio em português. A análise roda no navegador.</p>
+  </header>
+
+  <div class="panel aviso" role="note">
+    <strong>Ferramenta complementar.</strong> Não confirma que o caminho está livre, não evita colisões e não substitui bengala, cão-guia, EPI ou procedimentos de segurança. Nenhuma imagem é armazenada nem enviada: o processamento é local. O modelo Fábrica vem junto com o app e, depois de usado uma vez, funciona sem internet; os modelos COCO-SSD são baixados pela internet ao iniciar.
+  </div>
+  <!-- Visível só se css/visioindustria.css ou js/app.js não carregarem (por exemplo, publicação sem as pastas css/ e js/). -->
+  <div class="panel aviso erro" id="avisoArquivos" role="alert"><strong>O aplicativo não carregou por completo.</strong> Faltam arquivos da publicação: confira se as pastas <code>css/</code>, <code>js/</code> e <code>icones/</code> foram enviadas junto com o <code>visioindustria.html</code>, e recarregue a página.</div>
+  <div class="panel aviso erro" id="avisoRede" role="alert" hidden><strong>Sem a biblioteca de detecção.</strong> O TensorFlow.js ou o COCO-SSD não carregaram (sem internet ou rede bloqueada). Os modelos COCO-SSD não funcionam offline: conecte-se e recarregue a página, ou escolha o modelo Fábrica.</div>
+
+  <div class="stage" id="stage">
+    <video id="video" playsinline muted aria-label="Imagem da câmera"></video>
+    <canvas id="overlay" aria-hidden="true"></canvas>
+    <div class="grid-lines" aria-hidden="true"></div>
+    <div class="lados" aria-hidden="true"><span id="rotE">esquerda</span><span id="rotD">direita</span></div>
+  </div>
+
+  <section class="panel estado-painel" aria-labelledby="tituloEstado">
+    <h2 id="tituloEstado" class="vh">Estado</h2>
+    <p class="selo"><span id="estado" data-estado="ocioso">Pronta para iniciar</span></p>
+    <p id="status" role="status" aria-live="polite">Pronto para iniciar.</p>
+  </section>
+
+  <div class="bar" id="controles" role="group" aria-label="Controles da assistência">
+    <button type="button" id="btnIniciar">Iniciar assistência</button>
+    <button type="button" id="btnPausar" class="sec" disabled>Pausar</button>
+    <button type="button" id="btnEncerrar" class="sec" disabled>Encerrar</button>
+    <button type="button" id="btnTeste" class="sec">Testar áudio</button>
+  </div>
+  <p class="dica"><small>Atalhos de teclado: <kbd>Espaço</kbd> inicia, pausa ou retoma; <kbd>Esc</kbd> encerra.</small></p>
+
+  <div class="panel aviso" id="avisoPista" hidden><strong>Modo pista controlada (EXPERIMENTAL).</strong> As direções assumem que a pista de demonstração foi montada com passagem disponível. A câmera <b>não comprova</b> que o lado indicado esteja livre ou seguro: uma região sem detecção só é tratada como disponível por essa premissa. Não use fora da pista preparada.</div>
+
+  <details class="panel">
+    <summary><strong>Limites desta versão</strong> (leia antes de usar)</summary>
+    <ul>
+      <li>O modelo <b>Fábrica</b> (padrão) foi treinado com fotos do próprio ambiente e reconhece só os objetos do banco de fotos (a lista aparece no painel "Banco de fotos na câmera"). Ele <b>não</b> reconhece veículos, foi treinado com poucas fotos por objeto e ainda não foi validado em campo; para pessoas, prefira o COCO-SSD até haver mais fotos de pessoas no banco.</li>
+      <li>Os modelos <b>COCO-SSD</b> reconhecem classes comuns: pessoas, veículos, móveis, malas. <b>Não</b> reconhecem parede, porta, palete, carrinho, degrau ou buraco.</li>
+      <li>Não mede distância: a posição é só esquerda, frente ou direita <b>na imagem</b>. Tamanho na imagem não é distância.</li>
+      <li>O app nunca afirma passagem livre. Indica no máximo <b>possível passagem</b>, quando a heurística de cor do piso (<b>experimental, sem validação em campo</b>) a confirma na região.</li>
+      <li>Segmentação semântica e profundidade <b>não existem</b> nesta versão. Larguras são relativas na imagem, não em metros.</li>
+      <li>Sem detecção não significa sem obstáculo. Dados velhos, incompletos ou com falha resultam em “Pare e aguarde”, nunca em direção.</li>
+    </ul>
+  </details>
+
+  <div class="cols">
+    <section class="panel" aria-labelledby="tituloAjustes">
+      <h2 id="tituloAjustes">Ajustes</h2>
+      <label>Confiança geral <span class="campo"><input type="range" id="conf" min="40" max="90" value="60"><output id="confV" for="conf">60%</output></span></label>
+      <label>Presença mínima (ciclos) <span class="campo"><input type="range" id="persist" min="1" max="5" value="2"><output id="persistV" for="persist">2</output></span></label>
+      <label>Intervalo de análise (ms) <span class="campo"><input type="range" id="intervalo" min="100" max="1000" step="50" value="300"><output id="intervaloV" for="intervalo">300</output></span></label>
+      <label>Pausa entre alertas iguais (s) <span class="campo"><input type="range" id="cool" min="2" max="20" value="6"><output id="coolV" for="cool">6</output></span></label>
+      <label>Modelo <select id="modelo"><option value="fabrica" selected>Fábrica (modelo próprio, objetos da apresentação)</option><option value="lite_mobilenet_v2">COCO-SSD leve (pessoas e veículos, baixa 19 MB)</option><option value="mobilenet_v2">COCO-SSD preciso (mais lento, baixa 68 MB)</option></select></label>
+      <label>Lados (esquerda/direita) <select id="lados"><option value="auto">Automático</option><option value="normal">Normal (imagem = visão do usuário)</option><option value="invertido">Invertido (imagem espelhada)</option></select></label>
+      <label>Modo de orientação <select id="modo"><option value="probabilidade" selected>Guia por probabilidade: sempre indica a direção com menor chance de bloqueio</option><option value="padrao">Padrão (exige passagem validada)</option><option value="pista">Pista controlada (experimental) — assume disponibilidade, sem comprovar</option></select></label>
+      <label>Avaliação de passagem (só no modo padrão) <select id="passagem"><option value="ligada">Ligada (heurística de piso, experimental)</option><option value="desligada">Desligada</option></select></label>
+      <label>Câmera <select id="camSel"><option value="">Padrão (traseira)</option></select></label>
+      <p><small>Modelo e câmera só podem ser trocados com a assistência encerrada.</small></p>
+    </section>
+    <section class="panel" aria-labelledby="tituloOrientacao">
+      <h2 id="tituloOrientacao">Orientação</h2>
+      <div class="m"><span>Decisão</span><span id="oDec">–</span></div>
+      <div class="m"><span title="Estimativa por regras, não calibrada: esquerda · frente · direita">Chance de bloqueio</span><span id="oProb">–</span></div>
+      <div class="m"><span>Lados da imagem</span><span id="oLados">–</span></div>
+      <div class="m"><span>Passagem (piso por cor)</span><span id="oSeg">–</span></div>
+      <div class="m"><span>Fontes de dados</span><span id="oFontes">–</span></div>
+      <div class="m"><span>Regiões</span><span id="oReg">–</span></div>
+      <div class="m"><span>Motivos</span><span id="oMot">–</span></div>
+      <div class="m"><span>Limitações</span><span id="oLim">–</span></div>
+      <small>Regiões: esquerda, frente (centro) e direita, do ponto de vista do usuário. Barras na imagem: no guia por probabilidade, a cor e o número são a chance de bloqueio de cada região (verde até 30%, amarelo até 60%, laranja até 90%, vermelho acima) e a seta ➜ marca a direção indicada; nos outros modos, vermelho = obstáculo, verde = possível passagem validada, cinza = não confirmada. Segmentação semântica e profundidade: não implementadas.</small>
+    </section>
+  </div>
+
+  <section class="panel" id="painelBanco" aria-labelledby="tituloBanco">
+    <h2 id="tituloBanco">Banco de fotos na câmera</h2>
+    <p><small>Cada objeto que a câmera detecta é comparado, ao vivo, com os objetos das fotos do banco da fábrica. O banco confirma o que o
+      modelo viu, corrige o nome quando o modelo está em dúvida e reconhece objetos do banco que o modelo quase deixou passar. O banco nunca
+      faz um obstáculo sumir: no máximo muda o nome falado.</small></p>
+    <div class="m"><span>Banco</span><span id="bResumo">não carregado</span></div>
+    <div class="banco-ultimo">
+      <img id="bMini" alt="" width="72" height="72" hidden>
+      <span id="bUltimo" aria-live="polite">Nenhum objeto comparado ainda.</span>
+    </div>
+    <div class="m"><span title="Contagem por quadro analisado: confirmadas · nomes corrigidos · recuperadas · divergentes">Confirma · corrige · recupera · diverge</span><span id="bCont">0 · 0 · 0 · 0</span></div>
+    <div class="m"><span>Comparação com o banco</span><span id="bTempo">–</span></div>
+    <label>Uso do banco <select id="bancoUso"><option value="ligado" selected>Ligado: confirma, corrige nomes e recupera objetos do banco</option><option value="so_mostrar">Só mostrar: compara, mas não muda os avisos</option><option value="desligado">Desligado: só o modelo</option></select></label>
+    <h3>Ensinar pela câmera</h3>
+    <p><small>Aponte a câmera para o objeto, escolha o nome certo e toque em Guardar. A maior caixa da imagem (ou o centro, se nada foi
+      detectado) vira uma referência nova <b>neste aparelho</b> e já vale no quadro seguinte, sem retreinar. A foto e o rótulo ficam
+      guardados no aparelho para exportar e retreinar o modelo (treino/README.md). Nada é enviado.</small></p>
+    <label>Objeto <select id="bClasse" disabled><option value="">(carregue o modelo Fábrica)</option></select></label>
+    <div class="bar">
+      <button type="button" id="btnEnsinar" disabled>Guardar objeto no banco</button>
+      <button type="button" class="sec" id="btnExportarBanco" disabled>Exportar fotos guardadas (.zip)</button>
+      <button type="button" class="sec" id="btnLimparBanco" disabled>Apagar o que foi ensinado</button>
+    </div>
+  </section>
+
+  <section class="panel" id="painelExtras" aria-labelledby="tituloExtras">
+    <h2 id="tituloExtras">Objetos desconhecidos e setas</h2>
+    <p><small>Um segundo detector, genérico (80 tipos de objeto do conjunto COCO), roda junto com o modelo da fábrica. O que ele vê e a fábrica
+    não conhece é avisado como <b>equipamento</b> ("Equipamento à frente"). Ele nunca apaga nem renomeia um objeto conhecido.
+    As <b>setas amarelas</b> da parede são lidas pela cor e pela forma e faladas uma vez ("Seta: vire à esquerda"). Seta não é obstáculo.</small></p>
+    <div class="m"><span>Detector genérico</span><span id="gEstado">não carregado</span></div>
+    <div class="m"><span>Custo do genérico</span><span id="gTempo">–</span></div>
+    <div class="m"><span title="Caixas genéricas por quadro: anunciadas como objeto novo · descartadas por cair sobre um objeto conhecido ou seta">Novos · sobre conhecidos</span><span id="gCont">0 · 0</span></div>
+    <label>Objetos desconhecidos <select id="generico"><option value="economico" selected>Econômico: a cada 2 quadros (padrão)</option><option value="ligado">Todo quadro (mais lento no celular)</option><option value="desligado">Desligado: só a fábrica</option></select></label>
+    <div class="m"><span>Setas</span><span id="sUltima" aria-live="polite">nenhuma vista ainda</span></div>
+    <div class="m"><span>Leitura das setas</span><span id="sTempo">–</span></div>
+    <label>Setas na parede <select id="setas"><option value="ligado" selected>Ligado: anuncia a direção</option><option value="desligado">Desligado</option></select></label>
+  </section>
+
+  <details class="panel" id="diagnostico">
+    <summary><strong>Diagnóstico e métricas</strong></summary>
+    <div class="m"><span>Estado da análise</span><span id="mEst">–</span></div>
+    <div class="m"><span>Modelo de detecção</span><span id="mModelo">não carregado</span></div>
+    <div class="m"><span>Motor de inferência</span><span id="mBackend">–</span></div>
+    <div class="m"><span>Carga do modelo</span><span id="mCarga">–</span></div>
+    <div class="m"><span>Voz</span><span id="mVoz">–</span></div>
+    <div class="m"><span>Último resultado válido</span><span id="mUlt">–</span></div>
+    <div class="m"><span>Inferência do modelo</span><span id="mInf">–</span></div>
+    <div class="m"><span>Segmentação (se registrada)</span><span id="mSeg">–</span></div>
+    <div class="m"><span>Ciclo total (inferência + alertas + desenho)</span><span id="mCic">–</span></div>
+    <div class="m"><span>FPS efetivo da análise</span><span id="mFps">–</span></div>
+    <div class="m"><span>FPS da câmera (quadros entregues)</span><span id="mCam">–</span></div>
+    <div class="m"><span>Ciclos concluídos</span><span id="mFr">0</span></div>
+    <div class="m"><span>Ciclos ignorados</span><span id="mIgn">0</span></div>
+    <div class="m"><span>Ciclos com erro</span><span id="mErr">0</span></div>
+    <div class="m"><span>Ciclos acima do intervalo</span><span id="mAtr">0</span></div>
+    <div class="m"><span>Resultados descartados (obsoletos)</span><span id="mDesc">0</span></div>
+    <div class="m"><span>Inferências expiradas (watchdog)</span><span id="mExp">0</span></div>
+    <div class="m"><span>Latência início da inferência → alerta</span><span id="mLat">–</span></div>
+    <div class="m"><span>Alertas emitidos</span><span id="mAl">0</span></div>
+    <div class="m"><span>Ciclos sem novo alerta (cena estável)</span><span id="mSup">0</span></div>
+    <div class="m"><span>Falhas (avisos ao usuário)</span><span id="mFa">0</span></div>
+    <small>Tempos medidos no próprio aparelho. Média e p95 usam os últimos 120 ciclos; FPS efetivo usa janela de 5 s. “–” significa sem medição, não zero.</small>
+    <div class="bar">
+      <button type="button" class="sec" id="btnCsv">Baixar alertas (CSV)</button>
+      <button type="button" class="sec" id="btnPerf">Baixar desempenho (CSV)</button>
+    </div>
+  </details>
+
+  <section class="panel" aria-labelledby="tituloLog"><h2 id="tituloLog">Registro de alertas</h2><ol id="log"></ol></section>
+</main>
+
+<!-- TensorFlow.js e COCO-SSD são carregados por js/app.js só quando um modelo COCO-SSD é escolhido (versões fixadas, com SRI). -->
+<script src="js/nucleo.js"></script>
+<script src="js/yolo.js"></script>
+<script src="js/banco.js"></script>
+<script src="js/setas.js"></script>
+<script src="js/app.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>

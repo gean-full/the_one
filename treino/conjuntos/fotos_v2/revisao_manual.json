@@ -1,0 +1,118 @@
+{
+ "_leia": "Pendências e observações feitas por uma pessoa (ou por Claude, indicado em cada item) olhando as fotos. 'pendencias' BLOQUEIA a foto na exportação até ser resolvida (apague o item quando decidir). 'classe' sobrescreve a classe deduzida do nome do arquivo. 'grupo' = mesmo objeto físico (nunca dividido entre treino e validação).",
+ "branco.png": {
+  "classe": "banco",
+  "grupo": "banco_madeira",
+  "observacoes": [
+   "observação visual (Claude, 30/10/2026): confirmar: a foto mostra um banco de madeira visto de cima, aparentemente o mesmo de banco_lado.png."
+  ],
+  "pendencias": [
+   "nome do arquivo 'branco' não corresponde a classe nenhuma; parece erro de digitação de 'banco'. Confirmar a classe."
+  ]
+ },
+ "banco_lado.png": {
+  "grupo": "banco_madeira",
+  "pendencias": [
+   "objeto de classe-alvo FORA da marcação (dois bancos de madeira ao fundo, no alto da foto): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+  ]
+ },
+ "objeto_estranho.png": {
+  "classe": null,
+  "observacoes": [
+   "observação visual (Claude, 30/10/2026): confirmar: parecem duas cadeiras empilhadas ou uma banqueta/cadeira alta sobre uma cadeira; há caixas e parte de uma pessoa à direita, fora da marcação."
+  ],
+  "pendencias": [
+   "objeto da marcação não identificado com segurança: informar a classe (ou se é uma classe nova) antes de usar a foto."
+  ]
+ },
+ "cadeiras_enfileiradas.png": {
+  "grupo": "cadeiras_enfileiradas",
+  "pendencias": [
+   "a marcação contém 2 cadeiras: uma caixa por cadeira, ou uma caixa para o conjunto?",
+   "objeto de classe-alvo FORA da marcação (caixa de papelão no canto superior esquerdo): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+  ]
+ },
+ "cadeiras_enfileiradas_frente.png": {
+  "grupo": "cadeiras_enfileiradas",
+  "pendencias": [
+   "a marcação contém 2 cadeiras: uma caixa por cadeira, ou uma caixa para o conjunto?"
+  ]
+ },
+ "pilha_de_caixas.png": {
+  "grupo": "pilha_dell",
+  "pendencias": [
+   "a marcação contém uma pilha de 3 caixas: uma caixa por caixa, ou uma caixa para a pilha (classe caixa ou classe nova 'pilha')?"
+  ]
+ },
+ "pilha_de_caixas_lado.png": {
+  "grupo": "pilha_un3091",
+  "pendencias": [
+   "a marcação contém uma pilha de 3 caixas: uma caixa por caixa, ou uma caixa para a pilha (classe caixa ou classe nova 'pilha')?"
+  ]
+ },
+ "pilha_de_caixas_vista_cima.png": {
+  "grupo": "pilha_un3091",
+  "pendencias": [
+   "a marcação contém uma pilha de caixas: uma caixa por caixa, ou uma caixa para a pilha (classe caixa ou classe nova 'pilha')?"
+  ]
+ },
+ "multiplos_manequins.png": {
+  "grupo": "manequins_roupa",
+  "pendencias": [
+   "a marcação contém 3 manequins: uma caixa por manequim, ou uma caixa para o conjunto?",
+   "objeto de classe-alvo FORA da marcação (manequins parciais à esquerda, ao fundo, e na borda direita): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+  ]
+ },
+ "cadeira_individual.png": {
+  "grupo": "cadeira_preta"
+ },
+ "cadeira_individual_lado.png": {
+  "grupo": "cadeira_preta",
+  "pendencias": [
+   "objeto de classe-alvo FORA da marcação (caixa de papelão no canto superior esquerdo): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+  ]
+ },
+ "manequim_do_rock.png": {
+  "pendencias": [
+   "objeto de classe-alvo FORA da marcação (manequim com short jeans à direita): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+  ]
+ },
+ "manequim_grande_frente.png": {
+  "grupo": "manequim_vestido_vermelho",
+  "pendencias": [
+   "objeto de classe-alvo FORA da marcação (parte de outro manequim com vestido vermelho na borda esquerda): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+  ]
+ },
+ "manequim_grande_lado.png": {
+  "grupo": "manequim_vestido_vermelho",
+  "pendencias": [
+   "objeto de classe-alvo FORA da marcação (manequim com vestido vermelho à esquerda): pela regra ele não é alvo nesta foto, mas sem rótulo o YOLO aprende que ele é 'fundo'. Decidir: marcar também, apagar/cobrir na foto, ou descartar a foto"
+  ]
+ },
+ "caixa_individual.png": {
+  "grupo": "caixa_dell",
+  "observacoes": [
+   "observação visual (Claude, 30/10/2026): confirmar: as três fotos 'caixa_individual*' parecem ser de três caixas diferentes (DELL, lisa, 'LAB')."
+  ]
+ },
+ "caixa_individual_em_pé.png": {
+  "grupo": "caixa_lisa"
+ },
+ "caixa_individual_lado.png": {
+  "grupo": "caixa_lab"
+ },
+ "planta.png": {
+  "grupo": "planta_vaso_azul"
+ },
+ "planta_al.png": {
+  "grupo": "planta_vaso_azul",
+  "observacoes": [
+   "observação visual (Claude, 30/10/2026): confirmar: mesma planta de planta.png, outro ângulo. O que significa '_al' no nome?"
+  ]
+ },
+ "planta_grande.png": {
+  "observacoes": [
+   "a faixa vermelha e amarela do piso fica dentro da marcação; ela não é marcação e foi preservada na imagem limpa."
+  ]
+ }
+}
